@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "My badass Nuxt.js project",
-  "author": "Evgenii",
+  "author": "alrigaff",
   "private": true,
   "scripts": {
     "dev": "nuxt",
