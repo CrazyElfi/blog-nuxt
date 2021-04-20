@@ -1,10 +1,11 @@
 <template>
-  <div class="wrapper">
     <header>
       <div class="navbar">
         <div class="container">
           <div class="navbar-content">
-            <div class="logo">Blog</div>
+            <div class="logo">
+             <nuxt-link to="/">Blog</nuxt-link>
+            </div>
             <ul class="navbar-list">
               <li class="navbar-item" v-for="link in links" :key="link.title">
                 <nuxt-link class="navbar-link"
@@ -16,14 +17,8 @@
             </ul>
           </div>
         </div>
-
       </div>
     </header>
-
-    <router-view></router-view>
-
-    <!--    <footer></footer>-->
-  </div>
 </template>
 
 <script>
@@ -32,6 +27,7 @@ export default {
     return {
       links: [
         { title: 'Home', url: '/' },
+        // { title: 'Blog', url: '/blog' },
         { title: 'About', url: '/about' },
       ]
     }
@@ -45,5 +41,4 @@ export default {
     color: #4b40e3;
   }
 }
-
 </style>
