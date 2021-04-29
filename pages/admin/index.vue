@@ -1,21 +1,10 @@
 <template>
-  <div class="wrapper-content wrapper-content--fixed">
-    <promo />
-    <Intro title="My last posts: "/>
-    <PostsList :posts="posts"/>
-    <contacts />
-  </div>
+    <PostsList :admin=true :posts="posts"/>
 </template>
 
 <script>
-import promo from "~/components/Promo.vue"
-import contacts from "~/components/Contacts.vue"
-
 export default {
-  components: {
-    promo,
-    contacts
-  },
+  layout: 'admin',
   data () {
     return {
       posts: [

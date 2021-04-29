@@ -4,18 +4,18 @@
       <h2 class="title">
         Contact me!
       </h2>
+      <Message v-if="message" :message="message"/>
       <form
         class="contact-form"
         @submit.prevent="onSubmit">
-        <label>Name: </label>
-        <input v-model="user.name" type="text">
+        <AppInput v-model="user.name">Name: </AppInput>
 
-        <label>Email: </label>
-        <input v-model="user.email " type="text">
-        <label>Text: </label>
-        <textarea v-model="user.text"></textarea>
+        <AppInput v-model="user.email" type="email">Email: </AppInput>
+
+        <AppTextArea v-model="user.text">Text: </AppTextArea>
+
         <div class="controls">
-          <button class="btn btnWhite"> Submit!</button>
+          <AppButton class="btnWhite"> Submit!</AppButton>
         </div>
       </form>
     </div>
@@ -26,6 +26,7 @@
 export default {
   data() {
     return {
+      message: null,
       user: {
         name: '',
         email: '',
@@ -34,8 +35,12 @@ export default {
     }
   },
   methods: {
-    onsubmit() {
+    onSubmit() {
+      this.message = 'Submitted!'
       console.log(this.user)
+      this.user.name = ''
+      this.user.email = ''
+      this.user.text = ''
     }
   }
 }

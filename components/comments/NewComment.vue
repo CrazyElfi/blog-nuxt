@@ -1,16 +1,16 @@
 <template>
   <section class="new-comment">
     <div class="container">
+      <Message v-if="message" :message="message"/>
       <form
         class="comment-form"
         @submit.prevent="onSubmit">
-        <label>Name: </label>
-        <input v-model="comment.name" type="text">
+        <label></label>
+        <AppInput v-model="comment.name">Name:</AppInput>
 
-        <label>Text: </label>
-        <textarea v-model="comment.text"></textarea>
+        <AppTextArea v-model="comment.text">Text: </AppTextArea>
         <div class="controls">
-          <button class="btn btnPrimary"> Submit!</button>
+          <AppButton> Submit!</AppButton>
         </div>
       </form>
     </div>
@@ -18,9 +18,11 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
+      message: null,
       comment: {
         name: '',
         text: ''
@@ -28,8 +30,11 @@ export default {
     }
   },
   methods: {
-    onsubmit() {
+    onSubmit() {
+      this.message = 'Submitted!'
       console.log(this.comment)
+      this.comment.name = ''
+      this.comment.text = ''
     }
   }
 }

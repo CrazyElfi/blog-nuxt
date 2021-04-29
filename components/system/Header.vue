@@ -26,8 +26,7 @@ export default {
   data () {
     return {
       links: [
-        { title: 'Home', url: '/' },
-        // { title: 'Blog', url: '/blog' },
+        { title: 'Blog', url: '/blog' },
         { title: 'About', url: '/about' },
       ]
     }
@@ -36,6 +35,9 @@ export default {
 </script>
 
 <style lang="scss">
+.logo a {
+  color: #333333;
+}
 .navbar-link {
   .nuxt-link-exact-active {
     color: #4b40e3;
