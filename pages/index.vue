@@ -16,44 +16,32 @@ export default {
     promo,
     contacts
   },
-  asyncData(ctx) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          postsLoaded: [
-            {
-              id: 1,
-              title: '1 post',
-              descr: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
-              img: 'https://www.vettimes.co.uk/app/uploads/2020/01/close-up-photography-of-adult-black-and-white-short-coat-dog-733416.jpg'
-            }
-          ]
-        })
-      }, 1500)
-    })
-    .then( data => {
-      return data
-    })
-    .catch( e => {
-      ctx.error(e)
-    })
-  },
-  // data () {
-  //   return {
-  //     posts: []
-  //   }
+  // asyncData(ctx) {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve({
+  //         postsLoaded: [
+  //           {
+  //             id: 1,
+  //             title: '1 post',
+  //             descr: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
+  //             img: 'https://www.vettimes.co.uk/app/uploads/2020/01/close-up-photography-of-adult-black-and-white-short-coat-dog-733416.jpg'
+  //           }
+  //         ]
+  //       })
+  //     }, 1500)
+  //   })
+  //   .then( data => {
+  //     return data
+  //   })
+  //   .catch( e => {
+  //     ctx.error(e)
+  //   })
   // },
-  // created() {
-  //   setTimeout(() => {
-  //     this.posts = [
-  //       {
-  //         id: 1,
-  //         title: '1 post',
-  //         descr: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
-  //         img: 'https://www.vettimes.co.uk/app/uploads/2020/01/close-up-photography-of-adult-black-and-white-short-coat-dog-733416.jpg'
-  //       },
-  //     ]
-  //   },1500)
-  // }
+  computed: {
+    postsLoaded () {
+      return this.$store.getters.getPostsLoaded
+    }
+  }
 }
 </script>
