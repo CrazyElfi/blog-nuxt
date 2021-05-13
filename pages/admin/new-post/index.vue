@@ -11,7 +11,7 @@ export default {
   methods: {
     onSubmit (post) {
       this.$store.dispatch('addPost', post)
-        .then(()=>{
+        .then( () => {
           this.$router.push('/admin')
         })
     }
